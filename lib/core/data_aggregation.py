@@ -22,7 +22,7 @@ class Data_Aggregation:
     def result_db_filter(self):
         old_db = []
         DB_PATH = get_value('DB_PATH')
-        with open(DB_PATH) as f:
+        with open(DB_PATH, encoding='utf-8') as f:
             for line in f:
                 old_db.append(line.strip())
         for info in self.result_infos:
@@ -40,7 +40,7 @@ class Data_Aggregation:
     def write_result_to_db(self):
         DB_PATH = get_value('DB_PATH')
         # 写结果文件到db
-        with open(DB_PATH, 'w') as f:
+        with open(DB_PATH, 'w', encoding="utf-8") as f:
             for info in self.result_infos:
                 hash_txt = "%s%s%s%s%s%s" % (info[u'检测项'], info[u'风险名称'], info[u'异常文件'], info[u'进程PID'] , info[u'异常时间'] , info[u'异常信息'])
                 #hash_txt = info[u'检测项'] + info[u'风险名称'] + info[u'异常文件'] + info[u'进程PID'] + info[u'异常时间'] + info[u'异常信息']

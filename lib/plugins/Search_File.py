@@ -21,10 +21,10 @@ class Search_File:
             print(u'时间周期：%s \n搜索结果：共发现 %d 处文件或者目录的创建和改动' % (self.time, len(files)))
 
             if os.path.exists(log_path):
-                f = open(log_path, "r+")
+                f = open(log_path, "r+",encoding='utf-8')
                 f.truncate()
                 f.close()
-            with open(log_path, 'a+') as f:
+            with open(log_path, 'a+',encoding='utf-8') as f:
                 for file in files:
                     f.write(file + '\n')
                     if DEBUG: print(file)

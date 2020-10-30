@@ -40,7 +40,7 @@ class Config_Analysis:
         suspicious, malice = False, False
         try:
             if not os.path.exists('/etc/sysconfig/iptables'): return suspicious, malice
-            with open('/etc/sysconfig/iptables') as f:
+            with open('/etc/sysconfig/iptables',encoding='utf-8') as f:
                 for line in f:
                     if len(line) < 5: continue
                     if line[0] != '#' and 'ACCEPT' in line:

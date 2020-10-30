@@ -41,7 +41,7 @@ class IPv4Database(object):
     def __init__(self, filename=None, use_mmap=True):
         if filename is None:
             filename = datfile
-        with open(filename, 'rb') as f:
+        with open(filename, 'rb',encoding='utf-8') as f:
             if use_mmap and mmap is not None:
                 buf = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
             else:

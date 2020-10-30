@@ -36,7 +36,7 @@ class Backdoor_Analysis:
             if not os.path.exists(file): return ""
             if os.path.isdir(file): return ""
             if mode == 'only':
-                with open(file) as f:
+                with open(file,encoding='utf-8') as f:
                     for line in f:
                         if len(line) < 3: continue
                         if line[0] == '#': continue
@@ -144,7 +144,7 @@ class Backdoor_Analysis:
         suspicious, malice = False, False
         try:
             if not os.path.exists('/etc/ld.so.preload'): return suspicious, malice
-            with open('/etc/ld.so.preload') as f:
+            with open('/etc/ld.so.preload',encoding='utf-8') as f:
                 for line in f:
                     if not len(line) > 3: continue
                     if line[0] != '#':
@@ -167,7 +167,7 @@ class Backdoor_Analysis:
                 for file in gci(cron):
                     if not os.path.exists(file): continue
                     if os.path.isdir(file): continue
-                    for i in open(file, 'r'):
+                    for i in open(file, 'r',encoding='utf-8'):
                         content = analysis_strings(i)
                         if content:
                             malice_result(u'常规后门检测', u'cron 后门', file, '', content, '[1]cat %s' % file, u'风险',
@@ -216,7 +216,7 @@ class Backdoor_Analysis:
         suspicious, malice = False, False
         try:
             if not os.path.exists('/etc/inetd.conf'): return suspicious, malice
-            with open('/etc/inetd.conf') as f:
+            with open('/etc/inetd.conf',encoding='utf-8') as f:
                 for line in f:
                     content = analysis_strings(line)
                     if content:
@@ -233,7 +233,7 @@ class Backdoor_Analysis:
         try:
             if not os.path.exists('/etc/xinetd.conf/'): return suspicious, malice
             for file in os.listdir('/etc/xinetd.conf/'):
-                with open(os.path.join('%s%s' % ('/etc/xinetd.conf/', file))) as f:
+                with open(os.path.join('%s%s' % ('/etc/xinetd.conf/', file)),encoding='utf-8') as f:
                     for line in f:
                         content = analysis_strings(line)
                         if content:

@@ -89,7 +89,7 @@ class Webserver:
         if not os.path.isfile(conf): return
         if not os.path.isfile(conf): return
 
-        with open(conf) as f:
+        with open(conf,encoding='utf-8') as f:
             for readline in f:
                 line = readline.lstrip().rstrip("\n").strip()
                 if line == '' or line[0] == '#':
@@ -114,7 +114,7 @@ class Webserver:
     def parseResinConf(self, conf):
         if not os.path.isfile(conf): return
         if not os.path.isfile(conf): return
-        with open(conf) as f:
+        with open(conf,encoding='utf-8') as f:
             for readline in f:
                 line = readline.lstrip().rstrip("\n").strip()
                 if line == '' or line[0] == '#' or line[0:4] == '<!--':

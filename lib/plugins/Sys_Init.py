@@ -47,7 +47,7 @@ class SYS_INIT:
             # 程序需要用到的系统命令
             syscmds = ['ps', 'strings', 'netstat', 'find', 'echo', 'iptables', 'lastlog', 'who', 'ifconfig', 'ssh']
             if not os.path.exists(file): return suspicious, malice
-            with open(file) as f:
+            with open(file,encoding='utf-8') as f:
                 for line in f:
                     if line[:5] == 'alias':
                         for syscmd in syscmds:

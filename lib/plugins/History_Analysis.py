@@ -29,7 +29,7 @@ class History_Analysis:
                     for dir in os.listdir(path):
                         file = os.path.join('%s%s%s' % (path, dir, '/.bash_history'))
                         if not os.path.exists(file):continue
-                        with open(file) as f:
+                        with open(file, encoding='utf-8') as f:
                             for line in f:
                                 contents = analysis_strings(line)
                                 if not contents: continue
@@ -38,7 +38,7 @@ class History_Analysis:
                                 malice = True
                 # 文件类，进行文件的操作分析
                 else:
-                    with open(path) as f:
+                    with open(path,encoding='utf-8') as f:
                         for line in f:
                             contents = analysis_strings(line)
                             if not contents: continue
