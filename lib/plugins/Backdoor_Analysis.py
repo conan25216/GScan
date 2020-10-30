@@ -336,9 +336,9 @@ class Backdoor_Analysis:
         suspicious, malice = self.check_xinetd()
         result_output_tag(suspicious, malice)
 
-        string_output(u' [13]setuid 后门检测')
-        suspicious, malice = self.check_setuid()
-        result_output_tag(suspicious, malice)
+        string_output(u' [13]setuid 后门检测') # find 太久了，
+        # suspicious, malice = self.check_setuid()
+        # result_output_tag(suspicious, malice)
 
         string_output(u' [14]系统启动项后门检测')
         suspicious, malice = self.check_startup()

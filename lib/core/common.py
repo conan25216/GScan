@@ -414,7 +414,7 @@ def loging():
     logger = logging.getLogger('GScan')
     SYS_PATH = get_value('SYS_PATH')
     logfile = SYS_PATH + '/log/log.log'
-    fh = logging.FileHandler(logfile)
+    fh = logging.FileHandler(logfile,encoding='utf-8')
     fh.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(message)s')
     fh.setFormatter(formatter)
