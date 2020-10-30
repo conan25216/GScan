@@ -230,7 +230,7 @@ def mkfile():
 # 追加文件写入
 def file_write(content):
     LOG_PATH = get_value('LOG_PATH')
-    with open(LOG_PATH, 'a+') as f:
+    with open(LOG_PATH, 'a+',encoding="utf-8") as f:
         f.write(content)
     sys.stdout.flush()
     return
